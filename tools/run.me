@@ -1,0 +1,11 @@
+#!/bin/bash -x
+
+wget -qO - https://github.com/compulab-yokneam/compulab_openwrt/archive/refs/heads/master.tar.gz | tar --strip-components=2 -xz
+cp config/config_iot-gate-imx8plus .config
+make oldconfig
+
+cat << eof
+	CompuLab iot-gate-imx8plus added successfully
+	Issue:
+		make -j `nproc`
+eof
